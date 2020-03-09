@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B127F0162416D70E0003939F /* DownloadableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B127F0152416D70E0003939F /* DownloadableImageView.swift */; };
 		B17897192415B67A00CBE022 /* EndPointProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17897182415B67A00CBE022 /* EndPointProtocol.swift */; };
 		B178971B2415B7B000CBE022 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = B178971A2415B7B000CBE022 /* HTTPMethod.swift */; };
 		B178971D2415B7FD00CBE022 /* HTTPTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = B178971C2415B7FD00CBE022 /* HTTPTask.swift */; };
@@ -32,6 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B127F0152416D70E0003939F /* DownloadableImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadableImageView.swift; sourceTree = "<group>"; };
 		B17897182415B67A00CBE022 /* EndPointProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPointProtocol.swift; sourceTree = "<group>"; };
 		B178971A2415B7B000CBE022 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		B178971C2415B7FD00CBE022 /* HTTPTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPTask.swift; sourceTree = "<group>"; };
@@ -69,6 +71,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B127F0142416D6970003939F /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				B127F0152416D70E0003939F /* DownloadableImageView.swift */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
 		B17897132415B51A00CBE022 /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -137,6 +147,7 @@
 		B1AAF512241578D60097CAC0 /* CodeChallenge */ = {
 			isa = PBXGroup;
 			children = (
+				B127F0142416D6970003939F /* CustomViews */,
 				B1ACB9E024167B860002F4DB /* MoviesList */,
 				B17897132415B51A00CBE022 /* Network */,
 				B1AAF513241578D60097CAC0 /* AppDelegate.swift */,
@@ -297,6 +308,7 @@
 				B1ACB9EE2416841D0002F4DB /* MoviesListViewModel.swift in Sources */,
 				B178971F2415B94E00CBE022 /* ParameterEncoderProtocol.swift in Sources */,
 				B17897222415BA7000CBE022 /* NetworkError.swift in Sources */,
+				B127F0162416D70E0003939F /* DownloadableImageView.swift in Sources */,
 				B178971D2415B7FD00CBE022 /* HTTPTask.swift in Sources */,
 				B178972A2415CE3700CBE022 /* Router.swift in Sources */,
 				B17897192415B67A00CBE022 /* EndPointProtocol.swift in Sources */,

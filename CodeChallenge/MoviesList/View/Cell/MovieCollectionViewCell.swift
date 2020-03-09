@@ -10,7 +10,7 @@ import UIKit
 
 class MovieCollectionViewCell: UICollectionViewCell {
 
-    @IBOutlet weak var movieImage: UIImageView!
+    @IBOutlet weak var movieImage: DownloadableImageView!
     @IBOutlet weak var titleLabel: UILabel!
     
     static var identifier = "MovieCollectionViewCell"
@@ -22,6 +22,7 @@ class MovieCollectionViewCell: UICollectionViewCell {
     
     func setup(movie: Movie) {
         self.titleLabel.text = movie.title
+        self.movieImage.loadImage(using: movie.posterPath)
     }
 
 }
