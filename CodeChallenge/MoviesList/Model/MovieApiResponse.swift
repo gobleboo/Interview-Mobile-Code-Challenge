@@ -31,7 +31,6 @@ extension MovieApiResponse: Decodable {
         numberOfResults = try container.decode(Int.self, forKey: .numberOfResults)
         numberOfPages = try container.decode(Int.self, forKey: .numberOfPages)
         movies = try container.decode([Movie].self, forKey: .movies)
-        
     }
 }
 

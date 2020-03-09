@@ -12,8 +12,18 @@ class MoviesListViewController: UIViewController {
 
     @IBOutlet weak var moviesListCollectionView: UICollectionView!
     
+    var moviesListViewModel = MoviesListViewModel() {
+        didSet {
+            self.updateUI()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        moviesListViewModel.fetchLatestMovies()
     }
 
+    private func updateUI() {
+        print("AIAI")
+    }
 }
