@@ -14,7 +14,6 @@ protocol MoviesRepositoryProtocol {
 }
 
 class MoviesRepository {
-    static let movieAPIKey = "1af49bdb687215968a60782d9f9b39e6"
     private let router = Router<MovieAPI>()
 }
 

@@ -16,17 +16,23 @@ class MoviesListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        moviesListViewModel.delegate = self
-        moviesListViewModel.fetchLatestMovies()
+        self.title = "Movies"
+        self.moviesListViewModel.delegate = self
+        self.moviesListViewModel.fetchLatestMovies()
         self.setupCollectionView()
     }
     
     private func setupCollectionView() {
         moviesListCollectionView.delegate = self
         moviesListCollectionView.dataSource = self
-//        moviesListCollectionView.lay
         let movieCellNib = UINib(nibName: MovieCollectionViewCell.identifier, bundle: nil)
         moviesListCollectionView.register(movieCellNib, forCellWithReuseIdentifier: MovieCollectionViewCell.identifier)
+    }
+    
+    private func showDetail(of movie: Movie?) {
+        let controller = MovieDetailViewController()
+        controller.movie = movie
+        self.navigationController?.pushViewController(controller, animated: true)
     }
 }
 
@@ -46,11 +52,19 @@ extension MoviesListViewController: UICollectionViewDataSource {
 }
 
 extension MoviesListViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let cell = collectionView.cellForItem(at: indexPath) as? MovieCollectionViewCell else {
+            fatalError("Could not select cell at index for type MovieCollectionViewCell")
+        }
+        self.showDetail(of: cell.movie)
+    }
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offsetY = scrollView.contentOffset.y
         let contentHeight = scrollView.contentSize.height
         
-        if offsetY > contentHeight - scrollView.frame.height {
+        if offsetY > contentHeight - scrollView.frame.height * 4{
             if !moviesListViewModel.isLoading {
                 moviesListViewModel.fetchLatestMovies()
             }

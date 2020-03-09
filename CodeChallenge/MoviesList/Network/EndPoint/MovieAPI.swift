@@ -9,10 +9,7 @@
 import Foundation
 
 enum MovieAPI {
-    case recommended(id: Int)
-    case popular(page: Int)
     case newMovies(page: Int)
-    case video(id: Int)
     case topRated(page: Int)
 }
 
@@ -27,14 +24,8 @@ extension MovieAPI: EndPointProtocol {
     
     var path: String {
         switch self {
-        case .recommended(let id):
-            return "\(id)/recommendations"
-        case .popular:
-            return "popular"
         case .newMovies:
             return "now_playing"
-        case .video(let id):
-            return "\(id)/videos"
         case .topRated:
             return "top_rated"
         }
@@ -49,9 +40,7 @@ extension MovieAPI: EndPointProtocol {
         case .newMovies(let page), .topRated(let page):
             return .requestParameters(bodyParameters: nil,
                                       urlParameters: ["page": page,
-                                                      "api_key": NetworkManager.movieAPIKey])
-        default:
-            return .request
+                                                      "api_key": "1af49bdb687215968a60782d9f9b39e6"])
         }
     }
     
