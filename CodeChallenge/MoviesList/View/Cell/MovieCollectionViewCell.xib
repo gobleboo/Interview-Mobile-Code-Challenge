@@ -16,7 +16,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="206" height="226"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Cig-Le-PlR" customClass="DownloadableImageView" customModule="CodeChallenge" customModuleProvider="target">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Cig-Le-PlR" customClass="DownloadableImageView" customModule="CodeChallenge" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="206" height="226"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dya-hi-k0v">
@@ -27,6 +27,7 @@
                     </label>
                 </subviews>
             </view>
+            <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="Cig-Le-PlR" secondAttribute="bottom" id="ExW-QI-vI8"/>
                 <constraint firstItem="dya-hi-k0v" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="Hyn-Zt-Xfp"/>

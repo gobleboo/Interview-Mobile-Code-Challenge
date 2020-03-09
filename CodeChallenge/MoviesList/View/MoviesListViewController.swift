@@ -24,6 +24,7 @@ class MoviesListViewController: UIViewController {
     private func setupCollectionView() {
         moviesListCollectionView.delegate = self
         moviesListCollectionView.dataSource = self
+//        moviesListCollectionView.lay
         let movieCellNib = UINib(nibName: MovieCollectionViewCell.identifier, bundle: nil)
         moviesListCollectionView.register(movieCellNib, forCellWithReuseIdentifier: MovieCollectionViewCell.identifier)
     }
@@ -60,5 +61,11 @@ extension MoviesListViewController: UICollectionViewDelegate {
 extension MoviesListViewController: MoviesListViewModelDelegate {
     func updateUI() {
         self.moviesListCollectionView.reloadData()
+    }
+}
+
+extension MoviesListViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.bounds.width / 2, height: collectionView.bounds.height / 2)
     }
 }
