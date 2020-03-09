@@ -16,11 +16,6 @@ class MovieCollectionViewCell: UICollectionViewCell {
     
     static var identifier = "MovieCollectionViewCell"
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-    
     func setup(movie: Movie) {
         self.movie = movie
         self.movieImage.loadImage(using: movie.posterPath)
