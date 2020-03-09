@@ -24,9 +24,6 @@ struct NetworkManager {
     private let router = Router<MovieAPI>()
     
     func getNewMovies(page: Int, completion: @escaping (Result<[Movie], NetworkError>) -> ()) {
-//        router.request(.newMovies(page: page)) { data, response, error in
-//            
-//        }
         router.request(.newMovies(page: page)) { data, response, error in
             if error != nil {
                 completion(.failure(.encodingFailed))
@@ -35,6 +32,26 @@ struct NetworkManager {
 //            if let response = response as? HTTPURLResponse {
 //
 //            }
+            guard let data = data else {
+                completion(.failure(.parametersNil))
+                return
+            }
+            
+            do {
+                let apiResponse = try JSONDecoder().decode(MovieApiResponse.self, from: data)
+                completion(.success(apiResponse.movies))
+            } catch {
+                completion(.failure(.missingURL))
+            }
+        }
+    }
+    
+    func getLatestMovies(completion: @escaping (Result<[Movie], NetworkError>) -> ()) {
+        router.request(.topRated(page: 1)) { data, response, error in
+            if error != nil {
+                completion(.failure(.encodingFailed))
+            }
+                        
             guard let data = data else {
                 completion(.failure(.parametersNil))
                 return

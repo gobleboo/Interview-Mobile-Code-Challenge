@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        networkManager.getNewMovies(page: 1) { result in
+        networkManager.getLatestMovies { result in
             switch result {
             case .success(let movies):
                 for movie in movies {
@@ -24,6 +24,16 @@ class ViewController: UIViewController {
                 print(error)
             }
         }
+//        networkManager.getNewMovies(page: 1) { result in
+//            switch result {
+//            case .success(let movies):
+//                for movie in movies {
+//                    print(movie.title)
+//                }
+//            case .failure(let error):
+//                print(error)
+//            }
+//        }
     }
 }
 
