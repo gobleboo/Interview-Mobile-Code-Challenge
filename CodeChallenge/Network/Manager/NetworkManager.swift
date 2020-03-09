@@ -27,7 +27,7 @@ struct NetworkManager {
 //        router.request(.newMovies(page: page)) { data, response, error in
 //            
 //        }
-        router.request(.newMovies(page: 1)) { data, response, error in
+        router.request(.newMovies(page: page)) { data, response, error in
             if error != nil {
                 completion(.failure(.encodingFailed))
             }
