@@ -8,10 +8,27 @@
 
 import Foundation
 
+protocol MoviesListViewModelDelegate: class {
+    func updateUI()
+}
+
 class MoviesListViewModel {
     
     private let moviesRepository: MoviesRepositoryProtocol
-    private var movies: [Movie] = [Movie]()
+    weak var delegate: MoviesListViewModelDelegate?
+    
+    var movies: [Movie] = [Movie]() {
+        didSet {
+            print("Movies updated")
+            DispatchQueue.main.async {
+                self.delegate?.updateUI()
+            }
+        }
+    }
+    
+    var numberOfMovies: Int {
+        return movies.count
+    }
     
     init(moviesRepository: MoviesRepositoryProtocol = MoviesRepository()) {
         self.moviesRepository = moviesRepository

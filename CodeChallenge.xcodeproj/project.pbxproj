@@ -155,7 +155,6 @@
 				B1ACB9EF2416847C0002F4DB /* Model */,
 				B1ACB9EC241683F90002F4DB /* ViewModel */,
 				B1ACB9EB241683E50002F4DB /* View */,
-				B1ACB9E624167E5A0002F4DB /* Cell */,
 			);
 			path = MoviesList;
 			sourceTree = "<group>";
@@ -174,6 +173,7 @@
 			children = (
 				B1ACB9E224167C800002F4DB /* MoviesListViewController.swift */,
 				B1ACB9E324167C800002F4DB /* MoviesListViewController.xib */,
+				B1ACB9E624167E5A0002F4DB /* Cell */,
 			);
 			path = View;
 			sourceTree = "<group>";

@@ -14,16 +14,41 @@ class MoviesListViewController: UIViewController {
     
     var moviesListViewModel = MoviesListViewModel() {
         didSet {
-            self.updateUI()
+//            self.updateUI()
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        moviesListViewModel.delegate = self
         moviesListViewModel.fetchLatestMovies()
+        self.setupCollectionView()
     }
+    
+    private func setupCollectionView() {
+        moviesListCollectionView.dataSource = self
+        let movieCellNib = UINib(nibName: MovieCollectionViewCell.identifier, bundle: nil)
+        moviesListCollectionView.register(movieCellNib, forCellWithReuseIdentifier: MovieCollectionViewCell.identifier)
+    }
+}
 
-    private func updateUI() {
-        print("AIAI")
+extension MoviesListViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return moviesListViewModel.numberOfMovies
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MovieCollectionViewCell.identifier, for: indexPath) as? MovieCollectionViewCell else {
+            fatalError("Could not dequeue cell for type MovieCollectionViewCell")
+        }
+        
+        cell.setup(movie: moviesListViewModel.movies[indexPath.item])
+        return cell
+    }
+}
+
+extension MoviesListViewController: MoviesListViewModelDelegate {
+    func updateUI() {
+        self.moviesListCollectionView.reloadData()
     }
 }

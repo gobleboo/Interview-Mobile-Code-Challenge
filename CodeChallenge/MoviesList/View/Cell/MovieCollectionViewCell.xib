@@ -19,18 +19,27 @@
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Cig-Le-PlR">
                         <rect key="frame" x="0.0" y="0.0" width="206" height="226"/>
                     </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dya-hi-k0v">
+                        <rect key="frame" x="82" y="185" width="42" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </view>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="Cig-Le-PlR" secondAttribute="bottom" id="ExW-QI-vI8"/>
+                <constraint firstItem="dya-hi-k0v" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="Hyn-Zt-Xfp"/>
                 <constraint firstItem="Cig-Le-PlR" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Iy8-2G-kJx"/>
                 <constraint firstItem="Cig-Le-PlR" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Sra-Eq-g7G"/>
                 <constraint firstAttribute="trailing" secondItem="Cig-Le-PlR" secondAttribute="trailing" id="Wm2-t7-So6"/>
+                <constraint firstAttribute="bottom" secondItem="dya-hi-k0v" secondAttribute="bottom" constant="20" id="qeQ-bU-itP"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="206" height="226"/>
             <connections>
                 <outlet property="movieImage" destination="Cig-Le-PlR" id="Ndu-IK-qd8"/>
+                <outlet property="titleLabel" destination="dya-hi-k0v" id="RlF-cm-rhC"/>
             </connections>
             <point key="canvasLocation" x="163.768115942029" y="77.678571428571431"/>
         </collectionViewCell>

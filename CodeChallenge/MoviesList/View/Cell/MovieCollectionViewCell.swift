@@ -11,10 +11,17 @@ import UIKit
 class MovieCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var movieImage: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
+    
+    static var identifier = "MovieCollectionViewCell"
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+    }
+    
+    func setup(movie: Movie) {
+        self.titleLabel.text = movie.title
     }
 
 }
