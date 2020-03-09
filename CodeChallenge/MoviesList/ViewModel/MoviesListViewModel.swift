@@ -16,7 +16,7 @@ class MoviesListViewModel {
     
     private let moviesRepository: MoviesRepositoryProtocol
     weak var delegate: MoviesListViewModelDelegate?
-    var latestMoviesPage = 1
+    var latestMoviesPage = 0
     var movies: [Movie] = [Movie]() {
         didSet {
             DispatchQueue.main.async {
@@ -29,18 +29,23 @@ class MoviesListViewModel {
         return movies.count
     }
     
+    var isLoading = false
+    
     init(moviesRepository: MoviesRepositoryProtocol = MoviesRepository()) {
         self.moviesRepository = moviesRepository
     }
     
     func fetchLatestMovies() {
+        self.isLoading = true
+        self.latestMoviesPage += 1
         moviesRepository.fetchLatestMovies(page: latestMoviesPage) { result in
             switch result {
             case .success(let movies):
-                self.movies = movies
+                self.movies += movies
             case .failure(let error):
                 print(error)
             }
+            self.isLoading = false
         }
     }
     

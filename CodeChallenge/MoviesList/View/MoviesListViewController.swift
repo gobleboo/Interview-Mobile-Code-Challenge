@@ -46,7 +46,14 @@ extension MoviesListViewController: UICollectionViewDataSource {
 
 extension MoviesListViewController: UICollectionViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        print("VAI PAI")
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+        
+        if offsetY > contentHeight - scrollView.frame.height {
+            if !moviesListViewModel.isLoading {
+                moviesListViewModel.fetchLatestMovies()
+            }
+        }
     }
 }
 
