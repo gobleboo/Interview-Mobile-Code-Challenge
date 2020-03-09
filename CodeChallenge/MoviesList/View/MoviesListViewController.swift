@@ -12,11 +12,7 @@ class MoviesListViewController: UIViewController {
 
     @IBOutlet weak var moviesListCollectionView: UICollectionView!
     
-    var moviesListViewModel = MoviesListViewModel() {
-        didSet {
-//            self.updateUI()
-        }
-    }
+    var moviesListViewModel = MoviesListViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +22,7 @@ class MoviesListViewController: UIViewController {
     }
     
     private func setupCollectionView() {
+        moviesListCollectionView.delegate = self
         moviesListCollectionView.dataSource = self
         let movieCellNib = UINib(nibName: MovieCollectionViewCell.identifier, bundle: nil)
         moviesListCollectionView.register(movieCellNib, forCellWithReuseIdentifier: MovieCollectionViewCell.identifier)
@@ -44,6 +41,12 @@ extension MoviesListViewController: UICollectionViewDataSource {
         
         cell.setup(movie: moviesListViewModel.movies[indexPath.item])
         return cell
+    }
+}
+
+extension MoviesListViewController: UICollectionViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        print("VAI PAI")
     }
 }
 
