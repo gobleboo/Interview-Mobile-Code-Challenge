@@ -40,7 +40,7 @@ extension MovieAPI: EndPointProtocol {
         case .newMovies(let page), .topRated(let page):
             return .requestParameters(bodyParameters: nil,
                                       urlParameters: ["page": page,
-                                                      "api_key": "1af49bdb687215968a60782d9f9b39e6"])
+                                                      "api_key": ""])
         }
     }
     
